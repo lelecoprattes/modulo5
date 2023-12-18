@@ -1,0 +1,142 @@
+//traz as informacoes do cliente logando com email do cliente
+
+!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../static/css/estilogeral.css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+    <body>
+
+<!--menu de navegação-->
+<nav>
+              <header id="navegacao">
+                <div class="container">
+                  <div class="flex">
+                  <a href="@{/agenciaindex}">TUORBRASIL</a>
+                  <nav>
+                  <ul>
+                    <li><a  href="./empresa.html" >EMPRESA</a></li>
+                    <li><a  href="./destino.html" >DESTINO</a></li>
+                    <li><a  href="./promocao.html">PROMOÇÃO</a></li>
+                    <li><a  href="./register.html">REGISTRE-SE</a></li>
+                    <li><a  th href="@{/pedido}">LOGIN</a></li>
+                  </ul>
+                  </nav>
+                  <!--botao fale conosco-->
+                  <div class="btn-contato">
+                    <a href="./contatos.html"><button>Fale Conosco</button></a>
+                  </div>
+                  </div><!--flex-->
+                </div><!--container-->
+        </header>
+        <section class="banner"><!--imagem fundo do site-->
+          <h1><span>TUORBRASIL</span> DESCUBRA UM <span> NOVO MUNDO</span></h1>
+        </section>
+</nav>
+<!--trazer as informacoes do usuario quando fizer o ligin-->
+<div class="container">
+    <div class="row col-md-10">
+        <h2>List of Registered Users</h2>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                 <th>Telefone</th>
+                  <th>CPF cadastrado</th>
+                  
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each = "user : ${users}">
+                <td th:text = "${user.firstName}"></td>
+                <td th:text = "${user.lastName}"></td>
+                <td th:text = "${user.email}"></td>
+                <td th:text = "${telefone}"></td>
+                <td th:text = "${cpf}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<footer>
+  <div id="footer_content">
+    <div id="footer_contacts">
+      <H1>TURBRASIL</H1>
+      <p>Descubra Novos Mundos</p>
+      <div id="footer_social_media">
+        <a href="./contatos.html" class="footer_link" id="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="tik-tok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+
+    </div>
+    <ul class="footer-list">
+      <li>
+        <h3>Blog</h3>
+      </li>
+      <li>
+        <a href="./empresa.html" class="footer-list">Quem Somos</a>
+      </li>
+      <li>
+        <a href="./pedidos.html" class="footer-list">Pedidos</a>
+      </li>
+      <li>
+        <a href="./contatos.html" class="footer-list">Problemas Tecnicos</a>
+      </li>
+    </ul>
+
+    <ul class="footer-list">
+      <li>
+        <h3>Produtos</h3>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Android</a>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Descktop</a>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Apple</a>
+      </li>
+    </ul>
+<div id="footer_subscribe">
+  <h3> Escreva-se</h3>
+  <p> coloque seu e-mal e receba nossas promoçôes</p>
+  <div id="input_group">
+    <input type="email" id="email">
+    <button>
+      <i class="fa-regular fa-envelope"></i>
+    </button>
+  </div>
+</div>
+  </div>
+  <div id="footer_copyright">
+    &#169
+    2023 todos os diretos resevados.
+  </div>
+</footer>
+
+      <script src="../static/js/animacao.js"></script>       
+  </body>
+</html>
+
+</body>
+</html>

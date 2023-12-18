@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../static/css/estilogeral.css.css">
+<!--<link rel="stylesheet" href="estilo da pagina pedido.css">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
+          
+</head>
+    <body>
+      <!--menu de navegação-->
+              <header id="navegacao">
+                <div class="container">
+                  <div class="flex">
+                  <a href="./agenciaindex.html">INICIO</a>
+                  <nav>
+                  <ul>
+                    <li><a  href="./empresa.html" >EMPRESA</a></li>
+                    <li><a  href="./destino.html" >DESTINO</a></li>
+                    <li><a  href="./promocao.html">PROMOÇÃO</a></li>
+                     <li><a  href="./register.html">REGISTRE-SE</a></li>
+                    <li><a  th href="@{/pedido}">LOGIN</a></li>
+                  </ul>
+                  </nav>
+                  <div class="btn-contato">
+                    <a href="./contatos.html"><button>fale conosco</button></a>
+                  </div><!--btn-contato-->
+                  </div><!--flex-->
+                </div><!--container-->
+        </header>
+        <section class="banner"><!--imagem fundo do site-->
+          <h1><span>PARA VER SEUS PEDIDOS</span> FAÇA SEU LOGIN</span></h1>
+        </section>
+        
+  <br/><br/>      
+<!--tela de login-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+// se ele pegar um paramentro com erro senha ou email errado ira parecer esse alerta.
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">E-mail ou senha inválidos</div>
+            </div>
+// (quando efetuar o logout) sair do do login ira mostra a mnsagem de que vc esta saindo.
+            <div th:if="${param.logout}">
+                <div class="alert alert-success"> Você foi desconectado.</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Login</h2>
+                </div>
+      // para fazer o login para enttrar com senha e email
+                <div class="card-body">
+                    <form
+                        method="post"
+                        role="form"
+                        th:action="@{/login}"
+                        class="form-horizontal"
+                    >
+                        <div class="form-group mb-3">
+                            <label class="control-label"> Email</label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                class="form-control"
+                                placeholder="Seu email cadastrado"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label"> Senha</label>
+                            <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-control"
+                                    placeholder="Senha cadastrada"/>
+                        </div>
+                        
+                      
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn btn-primary" >Submit</button>
+                            <span> nao tem registro ?
+                                <a th:href="@{/register}">É novo clica e registri-se</a>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--rodape-->
+<footer>
+  <div id="footer_content">
+    <div id="footer_contacts">
+      <H1>TUORBRASIL</H1>
+      <p>Descubra Novos Mundos</p>
+      <div id="footer_social_media">
+        <a href="./contatos.html" class="footer_link" id="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="tik-tok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+
+    </div>
+    <ul class="footer-list">
+      <li>
+        <h3>Blog</h3>
+      </li>
+      <li>
+        <a href="./empresa.html" class="footer-list">Quem Somos</a>
+      </li>
+      <li>
+        <a href="./pedidos.html" class="footer-list">Pedidos</a>
+      </li>
+      <li>
+        <a href="./contatos.html" class="footer-list">Problemas Tecnicos</a>
+      </li>
+    </ul>
+
+    <ul class="footer-list">
+      <li>
+        <h3>Produtos</h3>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Android</a>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Descktop</a>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Apple</a>
+      </li>
+    </ul>
+<div id="footer_subscribe">
+  <h3> Escreva-se</h3>
+  <p> coloque seu e-mal e receba nossas promoçôes</p>
+  <div id="input_group">
+    <input type="email" id="email">
+    <button>
+      <i class="fa-regular fa-envelope"></i>
+    </button>
+  </div>
+</div>
+  </div>
+  <div id="footer_copyright">
+    &#169
+    2023 todos os diretos resevados.
+  </div>
+</footer>
+
+          <script src="../static/js/animacao.js"></script>        
+  </body>
+</html>

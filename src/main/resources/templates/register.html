@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../static/css/estilogeral.css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+    <body>
+
+<!--menu de navegação-->
+<nav>
+              <header id="navegacao">
+                <div class="container">
+                  <div class="flex">
+                  <a href="@{/agenciaindex}">TUORBRASIL</a>
+                  <nav>
+                  <ul>
+                    <li><a  href="./empresa.html" >EMPRESA</a></li>
+                    <li><a  href="./destino.html" >DESTINO</a></li>
+                    <li><a  href="./promocao.html">PROMOÇÃO</a></li>
+                    <li><a  th href="@{/pedido}">LOGIN</a></li>
+                  </ul>
+                  </nav>
+                  <!--botao fale conosco-->
+                  <div class="btn-contato">
+                    <a href="./contatos.html"><button>Fale Conosco</button></a>
+                  </div>
+                  </div><!--flex-->
+                </div><!--container-->
+        </header>
+        <section class="banner"><!--imagem fundo do site-->
+          <h1><span>TUORBRASIL</span> DESCUBRA UM <span> NOVO MUNDO</span></h1>
+        </section>
+</nav>
+<br /><br /><br />
+<div class="container">
+  <div class="row col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+          <h2 class="text-center">Registration</h2>
+      </div>
+      <div th:if="${param.success}">
+          <div class="alert alert-info">
+            Você registrou nosso aplicativo com sucesso!
+          </div>
+      </div>
+      <div class="card-body">
+          <form
+            method="post"
+            role="form"
+            th:action="@{/register/save}"
+            th:object="${user}"
+          >
+            <div class="form-group mb-3">
+              <label class="form-label"> Nome</label>
+              <input
+                      class="form-control"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="Enter first name"
+                      th:field="*{firstName}"
+                      type="text" />
+                      // mensagem de erro
+              <p th:errors = "*{firstName}" class="text-danger"
+              th:if="${#fields.hasErrors('firstName')}"></p>
+            </div>
+
+            <div class="form-group mb-3">
+              <label class="form-label">sobrenome</label>
+              <input
+                      class="form-control"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Enter last name"
+                      th:field="*{lastName}"
+                      type="text"
+              />
+              // se a validadecao desses campos acima que e um formulario nao bater ele exibe a mensagem de erro
+              // mensagem de erro 
+              <p th:errors = "*{lastName}" class="text-danger"
+                 th:if="${#fields.hasErrors('lastName')}"></p>
+            </div>
+            
+             <div class="form-group mb-3">
+              <label class="form-label"> Telefone</label>
+              <input
+                      class="form-control"
+                      id="telefone"
+                      name="telefone"
+                      placeholder="Enter first name"
+                      th:field="*{telefone}"
+                      type="int" />
+                      // mensagem de erro
+              <p th:errors = "*{telefone}" class="text-danger"
+              th:if="${#fields.hasErrors('telefone')}"></p>
+            </div>
+            
+             <div class="form-group mb-3">
+              <label class="form-label"> Cpf</label>
+              <input
+                      class="form-control"
+                      id="firstName"
+                      name="cpf"
+                      placeholder="Enter cpf"
+                      th:field="*{cpf}"
+                      type="int" />
+                      // mensagem de erro
+              <p th:errors = "*{cpf}" class="text-danger"
+              th:if="${#fields.hasErrors('cpf')}"></p>
+            </div>
+
+            <div class="form-group mb-3">
+              <label class="form-label">Email</label>
+              <input
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="Enter email address"
+                      th:field="*{email}"
+                      type="email"
+              />
+              // se a validadecao desses campos acima que e um formulario nao bater ele exibe a mensagem de erro
+             // mensagem de erro
+              <p th:errors = "*{email}" class="text-danger"
+                 th:if="${#fields.hasErrors('email')}"></p>
+            </div>
+
+            <div class="form-group mb-3">
+              <label class="form-label">senha</label>
+              <input
+                      class="form-control"
+                      id="password"
+                      name="password"
+                      placeholder="Enter password"
+                      th:field="*{password}"
+                      type="password"
+              />
+              // se a validadecao desses campos acima que e um formulario nao bater ele exibe a mensagem de erro
+              //mensagemd e erro
+              <p th:errors = "*{password}" class="text-danger"
+                 th:if="${#fields.hasErrors('password')}"></p>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">Register</button>
+              <span>Already registered? <a th:href="@{/login}">Login here</a></span>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--rodape-->
+<footer>
+  <div id="footer_content">
+    <div id="footer_contacts">
+      <H1>TURBRASIL</H1>
+      <p>Descubra Novos Mundos</p>
+      <div id="footer_social_media">
+        <a href="./contatos.html" class="footer_link" id="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="./contatos.html" class="footer_link" id="tik-tok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+
+    </div>
+    <ul class="footer-list">
+      <li>
+        <h3>Blog</h3>
+      </li>
+      <li>
+        <a href="./empresa.html" class="footer-list">Quem Somos</a>
+      </li>
+      <li>
+        <a href="./pedidos.html" class="footer-list">Pedidos</a>
+      </li>
+      <li>
+        <a href="./contatos.html" class="footer-list">Problemas Tecnicos</a>
+      </li>
+    </ul>
+
+    <ul class="footer-list">
+      <li>
+        <h3>Produtos</h3>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Android</a>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Descktop</a>
+      </li>
+      <li>
+        <a href="./downloads.html" class="footer-list">Apple</a>
+      </li>
+    </ul>
+<div id="footer_subscribe">
+  <h3> Escreva-se</h3>
+  <p> coloque seu e-mal e receba nossas promoçôes</p>
+  <div id="input_group">
+    <input type="email" id="email">
+    <button>
+      <i class="fa-regular fa-envelope"></i>
+    </button>
+  </div>
+</div>
+  </div>
+  <div id="footer_copyright">
+    &#169
+    2023 todos os diretos resevados.
+  </div>
+</footer>
+
+      <script src="../static/js/animacao.js"></script>       
+  </body>
+</html>
+</body>
+</html>
